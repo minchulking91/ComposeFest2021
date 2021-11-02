@@ -75,37 +75,32 @@ private fun Greeting(name: String) {
     ) {
         Row(
             modifier = Modifier
-//                .padding(top = 24.dp, start = 24.dp, end = 24.dp, bottom = 0.dp)
-                .padding(horizontal = 24.dp)
                 .animateContentSize(
                     animationSpec = spring(
                         dampingRatio = Spring.DampingRatioMediumBouncy,
                         stiffness = Spring.StiffnessLow
                     )
                 )
+                .padding(24.dp)
         ) {
             Column(
                 modifier = Modifier
-                    .padding(vertical = 24.dp)
                     .weight(1f)
             ) {
                 Text(text = "Hello")
                 Text(
                     text = "$name!",
                     style = MaterialTheme.typography.h4.copy(fontWeight = FontWeight.ExtraBold),
-//                    modifier = Modifier.padding(bottom = if (expanded) 0.dp else 24.dp)
                 )
                 if (expanded) {
                     Text(
                         text = ("Composem ipsum color sit lazy, " +
                                 "padding theme elit, sed do bouncy. ").repeat(4),
-//                        modifier = Modifier.padding(bottom = 24.dp)
                     )
                 }
             }
             IconButton(
                 onClick = { expanded = !expanded },
-                modifier = Modifier.padding(vertical = 24.dp)
             ) {
                 Icon(
                     imageVector = if (expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
